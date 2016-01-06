@@ -8,3 +8,4 @@ vamp-aubio.dylib
 vamp-aubio.dll
 libmain.so
 *.o
+win/Debug/

@@ -27,7 +27,7 @@
 #define _ONSET_PLUGIN_H_
 
 #include <vamp-sdk/Plugin.h>
-#include <aubio/aubio.h>
+#include <aubio.h>
 
 #include "Types.h"
 

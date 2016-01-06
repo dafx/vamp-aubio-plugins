@@ -27,7 +27,7 @@
 #define _SILENCE_PLUGIN_H_
 
 #include <vamp-sdk/Plugin.h>
-#include <aubio/aubio.h>
+#include <aubio.h>
 
 class Silence : public Vamp::Plugin
 {

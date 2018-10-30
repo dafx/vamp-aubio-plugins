@@ -204,7 +204,8 @@ SpecDesc::getOutputDescriptors() const
 }
 
 SpecDesc::FeatureSet
-SpecDesc::process(const float *const *inputBuffers, Vamp::RealTime timestamp)
+SpecDesc::process(const float *const *inputBuffers,
+               UNUSED Vamp::RealTime timestamp)
 {
     for (size_t i = 0; i < m_stepSize; ++i) {
         fvec_set_sample(m_ibuf, inputBuffers[0][i], i);

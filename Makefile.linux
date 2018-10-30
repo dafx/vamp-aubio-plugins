@@ -12,16 +12,19 @@
 # ... or for a release build
 CFLAGS		:= -Wall -Wextra -O3 -msse -msse2 -mfpmath=sse -ftree-vectorize -fPIC
 
+# use local static aubio, built with ./scripts/get_aubio.sh
+AUBIO_LDFLAGS := ./contrib/aubio/build/src/libaubio.a
+
 # Location of Vamp plugin SDK relative to the project directory
-VAMPSDK_DIR	:= ../vamp-plugin-sdk-2.5
+VAMPSDK_DIR	:= ./contrib/vamp-plugin-sdk-2.6
 
 # Location of libvamp-sdk.a
-VAMPBIN_DIR_LINUX64 ?= ../vamp-plugin-sdk-2.5-binaries-amd64-linux
-VAMPBIN_DIR_LINUX32 ?= ../vamp-plugin-sdk-2.5-binaries-i686-linux
+VAMPBIN_DIR_LINUX64 ?= ./contrib/vamp-plugin-sdk-2.6-binaries-amd64-linux
+VAMPBIN_DIR_LINUX32 ?= ./contrib/vamp-plugin-sdk-2.6-binaries-i686-linux
 
 # Libraries and linker flags required by plugin: add any -l<library>
 # options here
-PLUGIN_LDFLAGS	:= -shared -Wl,-Bsymbolic -Wl,-z,defs -Wl,--version-script=vamp-plugin.map
+PLUGIN_LDFLAGS	:= $(AUBIO_LDFLAGS) -shared -Wl,-Bsymbolic -Wl,-z,defs -Wl,--version-script=vamp-plugin.map
 PLUGIN_LIBS			:= -L$(VAMPBIN_DIR_LINUX32) -L$(VAMPBIN_DIR_LINUX64) -lvamp-sdk
 
 # File extension for plugin library on this platform

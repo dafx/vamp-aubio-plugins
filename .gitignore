@@ -8,4 +8,15 @@ vamp-aubio.dylib
 vamp-aubio.dll
 libmain.so
 *.o
+
+waf
+contrib/
+build/
+dist/
+
+.lock-waf*
+.waf-*
+waf
+waflib
+build/
 win/Debug/
